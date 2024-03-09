@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Rate Monitor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <!-- Logo -->
+      <div>
+        <img
+          src="{{ url_for('static', filename='images/logo.png') }}"
+          alt="Logo"
+          height="90"
+        />
+      </div>
+      <!-- Navigation Links -->
+      <div>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact Us</a>
+      </div>
+    </nav>
+    <!-- Main Content Section -->
+    <main class="container">
+      <div id="react-root"></div>
+      <!-- Video Containers -->
+      <div class="video-container">
+        <!-- Heart Video -->
+        <div class="heart-video" id="heartVideo">
+          <img
+            id="heart-gif"
+            src="{{ url_for('static', filename='images/heart.gif') }}"
+            alt="Heart GIF"
+          />
+        </div>
+        <!-- Webcam Feed -->
+        <div class="webcam-feed">
+          <img
+            id="video-feed"
+            src="{{ url_for('video_feed') }}"
+            alt="Webcam Feed"
+          />
+        </div>
+      </div>
+      <!-- Heart Rate Display -->
+      <p id="heart-rate">Heart Rate: Calculating...</p>
+      <!-- Chart Container -->
+      <div id="pulseChartContainer" style="display: none">
+        <canvas id="pulseChart" width="400" height="200"></canvas>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <!-- Include your main JavaScript file -->
+    <!-- <script src="{{ url_for('static', filename='js/main.js') }}?v={{ random_string }}"></script> -->
+
+    <!-- JavaScript to be executed when the DOM is fully loaded -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var ctx = document.getElementById("pulseChart").getContext("2d");
+        var heartRateChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: [],
+            datasets: [
+              {
+                label: "Heart Rate (BPM)",
+                data: [], // Initial data, empty
+                borderColor: "rgb(255, 99, 132)",
+                borderWidth: 2,
+                fill: false,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: "BPM",
+                },
+              },
+            },
+          },
+        });
+
+        function updateHeartRate() {
+          fetch("/get_heart_rate")
+            .then((response) => response.json())
+            .then((data) => {
+              // Update the heart rate display
+              document.getElementById(
+                "heart-rate"
+              ).innerText = `Heart Rate: ${data.bpm.toFixed(2)} BPM`;
+              document.getElementById("heartVideo").style.display = "none";
+              document.getElementById("pulseChartContainer").style.display =
+                "block";
+              // Add new data point to the chart
+              const newDataPoint = data.bpm.toFixed(2); // Assuming bpm is your data
+              // Optionally, add a new label for each data point, e.g., a timestamp
+              const newLabel = ""; // Placeholder, use actual timestamps or incrementing numbers as needed
+
+              // Add data to chart
+              heartRateChart.data.labels.push(newLabel);
+              heartRateChart.data.datasets.forEach((dataset) => {
+                dataset.data.push(newDataPoint);
+              });
+
+              // Remove old data points if necessary to keep the chart clean
+              if (heartRateChart.data.labels.length > 20) {
+                // Keep last 20 data points
+                heartRateChart.data.labels.shift();
+                heartRateChart.data.datasets.forEach((dataset) => {
+                  dataset.data.shift();
+                });
+              }
+
+              // Update the chart
+              heartRateChart.update();
+            });
+        }
+
+        // Update heart rate display and chart every second
+        setInterval(updateHeartRate, 1000);
+      });
+    </script>
+  </body>
+</html>
+

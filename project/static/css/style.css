@@ -1,0 +1,76 @@
+body {
+    background-color: #fff; /* Set the background color to white */
+    margin: 0; /* Remove default margin to ensure full width */
+    padding: 0; /* Remove default padding to ensure full width */
+}
+
+
+nav {
+    background-color: rgb(46, 46, 46);
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+main {
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-container {
+    text-align: center;
+    position: relative;
+}
+
+#video-feed {
+    max-width: 200%; /* Increase the size by 2x */
+    border: 4px solid #333; /* Add a border with color #333 */
+}
+
+#heart-gif {
+    max-width: 70%; /* Make sure the images are responsive */
+    max-height: 400px; /* Set the maximum height as needed */
+    margin: 0 auto; /* Center the images horizontally */
+    display: block; /* Remove any default inline display */
+}
+
+#heart-gif {
+    position: absolute;
+    top: 500px;
+    left: 300px;
+    z-index: -1; /* Send the heart GIF to the background */
+}
+
+#heart-rate {
+    margin-top: 10px;
+    font-size: 30px;
+    color: #333;
+    margin-left: 450px;
+}
+
+
+#pulseChartContainer {
+    margin-top: 20px;
+}
+
+#pulseChart {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Add additional styles as needed for the rest of your content */
