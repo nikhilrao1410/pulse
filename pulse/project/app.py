@@ -140,13 +140,13 @@ def get_heart_rate():
 def aboutus():
     return render_template('aboutus.html')
 
-@app.route('/FAQ')
+@app.route('/faq')
 def faq():
-    return render_template('FAQ.html')
+    return render_template('faq.html')
 
-@app.route('/T&S')
+@app.route('/terms')
 def terms():
-    return render_template('T&S.html')
+    return render_template('terms.html')
 
 @app.route('/feedback')
 def feedback():
