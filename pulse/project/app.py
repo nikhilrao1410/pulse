@@ -140,6 +140,10 @@ def get_heart_rate():
 def aboutus():
     return render_template('aboutus.html')
 
+@app.route('/heartRate')
+def heartRate():
+    return render_template('pulserate.html')
+
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
@@ -147,6 +151,10 @@ def faq():
 @app.route('/terms')
 def terms():
     return render_template('terms.html')
+
+@app.route('/health')
+def health():
+    return render_template('Health.html')
 
 @app.route('/feedback')
 def feedback():

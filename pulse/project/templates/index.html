@@ -2,13 +2,15 @@
 <html data-wf-domain="pulse-rate-monitor.webflow.io" data-wf-page="66068efa29dfba2761782beb" data-wf-site="66068ef929dfba27617827d9" data-wf-status="1" lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Business template - Webflow HTML website template</title>
+    <title>Pulse Rate Monitor</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="Webflow" name="generator">
     <!-- Stylesheets -->
     <link href="https://assets-global.website-files.com/66068ef929dfba27617827d9/css/pulse-rate-monitor.webflow.8a7baf492.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
     <!-- Webfont script -->
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -42,28 +44,29 @@
 </head>
 <body class="body">
     <!-- Navigation -->
-    <div class="navigation"></div>
-    <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease-out" data-easing2="ease-out" role="banner" class="navigation w-nav">
-        <div class="navigation-container">
-            <a href="/" aria-current="page" class="logo w-inline-block w--current"><img src="https://assets-global.website-files.com/66068ef929dfba27617827d9/660690a99c2c82ed11441555_logo.png" loading="lazy" width="310" alt=""></a>
-            <nav role="navigation" class="nav-menu w-nav-menu">
-                <a href="/premium" class="nav-link w-nav-link">Health</a>
-                <a href="/pricing" class="nav-link w-nav-link">Terms & Condition</a>
-                <a href="/about" class="nav-link w-nav-link">About</a>
-                <a href="#" class="nav-link w-nav-link">Feedback</a>
-                <a href="#" class="navigation-button w-button">Get Started</a>
-            </nav>
-            <div class="menu-button w-nav-button">
-                <div class="icon-2 w-icon-nav-menu"></div>
+    <div class="navigation">
+        <nav class="navigation-container" style="max-width: 100%;">
+            <!-- Logo -->
+            <a href="/">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" height="90">
+            </a>
+            <!-- Navigation Links -->
+            <div>
+                <a href="/aboutus">About</a>
+                <a href="/faq">FAQ</a>
+                <a href="/terms">Terms & Conditions</a>
+                <a href="/feedback">Feedback</a>
+                <a href="/health">Health</a>
+                <a href="/heartRate" class="navigation-button w-button">Get Started</a>
             </div>
-        </div>
-    </div>
+        </nav>
+</div>
     <!-- Header -->
     <div class="header">
         <div class="header-content">
             <h1 data-w-id="b777ef2d-ac03-cea3-ccc5-52beeee5222a" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(-50DEG) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(-50DEG) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(-50DEG) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(-50DEG) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d;opacity:0" class="h1">Pulse Beat -Your Heart Rate Companion</h1>
             <p data-w-id="cd085e48-08fc-46a5-a6c3-97346f451e6d" style="opacity:0;-webkit-transform:translate3d(0, 60PX, 0) scale3d(1, 1, 1) rotateX(-60DEG) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 60PX, 0) scale3d(1, 1, 1) rotateX(-60DEG) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 60PX, 0) scale3d(1, 1, 1) rotateX(-60DEG) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 60PX, 0) scale3d(1, 1, 1) rotateX(-60DEG) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d" class="paragraph">Monitoring Heartbeats, Nurturing Health</p>
-            <a href="pulserate.html" class="navigation-button w-button">Get Started</a>
+            <a href="/heartRate" class="navigation-button w-button">Get Started</a>
 
         </div>
     </div>
@@ -101,12 +104,12 @@
             </div>
             <div class="footer-column">
                 <div class="footer-links-list">
-                    <a href="/features" class="link-footer">Health</a>
-                    <a href="/premium" class="link-footer">Terms & conditions</a>
+                    <a href="/health" class="link-footer">Health</a>
+                    <a href="/terms" class="link-footer">Terms & conditions</a>
                 </div>
                 <div class="footer-links-list">
-                    <a href="/about" class="link-footer">About</a>
-                    <a href="/contact" class="link-footer">Feedback</a>
+                    <a href="/aboutus" class="link-footer">About</a>
+                    <a href="/feedback" class="link-footer">Feedback</a>
                 </div>
                 <div class="footer-links-list"></div>
                 <div class="footer-social">
