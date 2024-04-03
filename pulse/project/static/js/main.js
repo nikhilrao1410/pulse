@@ -57,4 +57,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Update heart rate display every second
     setInterval(updateHeartRate, 1000);
+
+    // Get the "Get Started" button element
+    var getStartedButton = document.getElementById('getStartedButton');
+    
+    // Add an event listener to handle the button click
+    getStartedButton.addEventListener('click', function(event) {
+        // Prevent the default behavior of the button (e.g., form submission)
+        event.preventDefault();
+        
+        // Redirect the user to the heartRate page
+        window.location.href = '/heartRate';
+    });
+
+    // Function to change the background image of the container
+    function changeBackgroundImage(imageUrl) {
+        var container = document.querySelector('.container');
+        container.style.backgroundImage = `url(${imageUrl})`;
+    }
+
+    // Call the function with the URL of the image you want to set as the background
+    changeBackgroundImage("{ { url_for('static', filename='images/medic.png') } }");
 });

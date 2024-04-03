@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com" rel="preconnect">
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">    
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></head>
+
         <!-- Webfont script -->
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
         <script type="text/javascript">
@@ -44,7 +46,7 @@
     
     <body class="body" style="display: flex; flex-direction: column; min-height: 100vh;">
         <div>
-            <nav>
+            <nav class="navbarcontainer">
                 <!-- Logo -->
                 <a href="/">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" height="90">
@@ -56,7 +58,7 @@
                     <a href="/terms">Terms & Conditions</a>
                     <a href="/feedback">Feedback</a>
                     <a href="/health">Health</a>
-                    <a href="/heartRate" class="navigation-button w-button">Get Started</a>
+                    <a href="/heartRate" class="get-started-button">Get Started</a>
                 </div>
             </nav>
         <!-- <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease-out" data-easing2="ease-out" role="banner" class="navigation w-nav">
@@ -81,30 +83,31 @@
         {% endblock %}
     </main>
     
-    <div class="footer" style="flex-shrink: 0;">
-        <div class="container cc-footer">
-            <div class="footer-column cc-footer">
-                <a href="/" aria-current="page" class="navigation-logo w-inline-block w--current"><img src="https://assets-global.website-files.com/66068ef929dfba27617827d9/660690a99c2c82ed11441555_logo.png" width="129" alt=""></a>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+          <div class="footer-left">
+            <div class="footer-logo">
+              <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
             </div>
-            <div class="footer-column">
-                <div class="footer-links-list">
-                    <a href="/health" class="link-footer">Health</a>
-                    <a href="/terms" class="link-footer">Terms & conditions</a>
-                </div>
-                <div class="footer-links-list">
-                    <a href="/aboutus" class="link-footer">About</a>
-                    <a href="/feedback" class="link-footer">Feedback</a>
-                </div>
-                <div class="footer-links-list"></div>
-                <div class="footer-social">
-                    <a href="#" class="link-social w-inline-block"><img src="https://assets-global.website-files.com/5b680680f109cf5a2fd941ab/5b68459df109cf0cf0d97867_icon-facebook.svg" alt=""></a>
-                    <a href="#" class="link-social w-inline-block"><img src="https://assets-global.website-files.com/5b680680f109cf5a2fd941ab/5b684641659acabed7c8b74d_icon-twitter.svg" alt=""></a>
-                    <a href="#" class="link-social w-inline-block"><img src="https://assets-global.website-files.com/5b680680f109cf5a2fd941ab/5b6846535b239d7ba536b158_icon-instagram.svg" alt=""></a>
-                </div>
-            </div>
+          </div>
+          <div class="footer-nav">
+            <div class="footer-list">
+            <a href="/health">Health</a>
+            <a href="/aboutus">About</a>
+          </div>
+          <div class="footer-list">
+            <a href="/terms">Terms & Conditions</a>
+            <a href="/feedback">Feedback</a>
+          </div>
+          <div class="footer-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+          </div>
+          </div>
+          
         </div>
-
-    </div>
+      </footer>
 
 </body>
 </html>
