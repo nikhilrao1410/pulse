@@ -62,6 +62,10 @@ a {
     flex-direction: column;
     justify-content: space-between;
     background-color: #f3f3f3;
+
+}
+.main-banner {
+  height: 768px;
 }
 
 .banner-button {
@@ -164,7 +168,7 @@ footer {
   .home-hero-heading {
     width: auto;
     max-width: 800px;
-    font-size: 60px;
+    font-size: 100px;
     text-align: center;
   }
   
@@ -317,21 +321,6 @@ body {
 }
 
 
-nav {
-    background-color: rgb(46, 46, 46);
-    padding: 10px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-}
-
 main {
     padding: 20px;
 }
@@ -343,7 +332,6 @@ main {
 
 .video-container {
     text-align: center;
-    position: relative;
 }
 
 #video-feed {
@@ -366,10 +354,8 @@ main {
 }
 
 #heart-rate {
-    margin-top: 10px;
     font-size: 30px;
     color: #333;
-    margin-left: 450px;
 }
 
 

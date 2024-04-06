@@ -1,65 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Rate Monitor</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <!-- Header -->
-    <!-- <div class="header">
-        <div class="header-content">
-            <h1 data-w-id="b777ef2d-ac03-cea3-ccc5-52beeee5222a" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(-50DEG) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(-50DEG) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(-50DEG) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(-50DEG) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d;opacity:0" class="h1">Pulse Beat -Your Heart Rate Companion</h1>
-            <p data-w-id="cd085e48-08fc-46a5-a6c3-97346f451e6d" style="opacity:0;-webkit-transform:translate3d(0, 60PX, 0) scale3d(1, 1, 1) rotateX(-60DEG) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 60PX, 0) scale3d(1, 1, 1) rotateX(-60DEG) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 60PX, 0) scale3d(1, 1, 1) rotateX(-60DEG) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 60PX, 0) scale3d(1, 1, 1) rotateX(-60DEG) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d" class="paragraph">Monitoring Heartbeats, Nurturing Health</p>
-            <a href="/contact" class="button w-button">Get Started</a>
-        </div>
-    </div> -->
+{% extends "base.html" %}
 
-    <!-- Navigation Bar -->
-    <nav>
-        <!-- Logo -->
-        <a href="/">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" height="90">
-        </a>
-        <!-- Navigation Links -->
-        <div>
-            <a href="/aboutus">About</a>
-            <a href="/faq">FAQ</a>
-            <a href="/terms">Terms & Conditions</a>
-            <a href="/feedback">Feedback</a>
-            <a href="/Health">Health</a>
-        </div>
-    </nav>
+{% block title %}Health Insights{% endblock %}
+
+{% block content %}
     <!-- Main Content Section -->
-    <main class="container">
-        <div id="react-root"></div>
+    <main class=" flex flex-col justify-center items-center gap-6">
+        <span class="text-red-500 font-bold" style="font-size: 72px;">Pulse Rate Detection using Webcam</span>
+        <div class="flex gap-10 items-center justify-center">
+        <div class="overflow-hidden bg-red-100 rounded-lg shadow-lg p-4 flex flex-col justify-center" style="width: fit-content;">
         <!-- Video Containers -->
         <div class="video-container">
             <!-- Heart Video -->
-            <div class="heart-video" id="heartVideo">
+            <!-- <div class="heart-video" id="heartVideo">
                 <img id="heart-gif" src="{{ url_for('static', filename='images/heart.gif') }}" alt="Heart GIF">
-            </div>
+            </div> -->
             <!-- Webcam Feed -->
             <div class="webcam-feed">
                 <img id="video-feed" src="{{ url_for('video_feed') }}" alt="Webcam Feed">
             </div>
         </div>
         <!-- Heart Rate Display -->
-        <p id="heart-rate">Heart Rate: Calculating...</p>
-        <!-- Chart Container -->
-        <div id="pulseChartContainer" style="display: none">
-            <canvas id="pulseChart" width="400" height="200"></canvas>
+        <div class="flex items-center justify-center">
+            <img src="{{ url_for('static', filename='images/heartAnimation.gif') }}" alt="" width="150px" />
+            <p id="heart-rate" class="font-semibold">Click on Start Button</p>
         </div>
+        <!-- Start and Stop Buttons -->
+        <div class="buttons flex justify-center gap-2 mt-4">
+            <button id="startButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Start Pulse Detection</button>
+            <button id="stopButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Stop Pulse Detection</button>
+        </div>
+
+        </div>
+        <!-- Chart Container -->
+        <div id="pulseChartContainer">
+            <canvas id="pulseChart" width="800" height="400"></canvas>
+        </div>
+    </div>
+       
     </main>
     <!-- Include Chart.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <!-- JavaScript to be executed when the DOM is fully loaded -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Get the context of the canvas element
             var ctx = document.getElementById("pulseChart").getContext("2d");
-            // Initialize the heart rate chart
             var heartRateChart = new Chart(ctx, {
                 type: "line",
                 data: {
@@ -84,16 +68,63 @@
                     },
                 },
             });
+        
+            // Define the interval ID and the detection state
+            var updateInterval;
+            var detectionActive = false;
+        
+            function startPulseDetection() {
+                if (!detectionActive) {
+                    detectionActive = true;
+                    fetch("/start_stream")
+                        .then(response => {
+                            if(response.ok) {
+                                console.log("Streaming started");
+                                // Force refresh of the webcam feed
+                                const videoFeedElement = document.getElementById("video-feed");
+                                const src = videoFeedElement.getAttribute("src");
+                                videoFeedElement.setAttribute("src", ""); // Clear src
+                                videoFeedElement.setAttribute("src", src); // Reassign to trigger load
+                                
+                                // Start the heart rate detection
+                                updateInterval = setInterval(updateHeartRate, 1000);
+                            }
+                        })
+                        .catch(error => console.error('Error starting streaming:', error));
+                }
+            }
 
-            // Function to update heart rate display and chart
+
+            function stopPulseDetection() {
+                if (detectionActive) {
+                    clearInterval(updateInterval);
+                    detectionActive = false;
+                    // Stop the webcam stream from the server
+                    fetch("/stop_stream")
+                        .then(response => {
+                            if(response.ok) {
+                                console.log("Streaming stopped");
+                                // Additional cleanup if necessary
+                            }
+                        })
+                        .catch(error => console.error('Error stopping streaming:', error));
+                }
+            }
+
+        
+            // Attach event listeners to buttons
+            document.getElementById("startButton").addEventListener("click", startPulseDetection);
+            document.getElementById("stopButton").addEventListener("click", stopPulseDetection);
+        
+            // Update your existing updateHeartRate function here
             function updateHeartRate() {
                 fetch("/get_heart_rate")
                     .then(response => response.json())
                     .then(data => {
                         // Update the heart rate display
                         document.getElementById("heart-rate").innerText = `Heart Rate: ${data.bpm.toFixed(2)} BPM`;
-                        document.getElementById("heartVideo").style.display = "none";
-                        document.getElementById("pulseChartContainer").style.display = "block";
+                        // document.getElementById("heartVideo").style.display = "none";
+                        // document.getElementById("pulseChartContainer").style.display = "block";
                         // Add new data point to the chart
                         const newDataPoint = data.bpm.toFixed(2);
                         const newLabel = ""; // Placeholder for timestamp or label
@@ -116,10 +147,8 @@
                         console.error('Error fetching heart rate data:', error);
                     });
             }
-
-            // Update heart rate display and chart every second
-            setInterval(updateHeartRate, 1000);
+        
         });
-    </script>
-</body>
-</html>
+        </script>
+        
+{% endblock %}

@@ -6,7 +6,7 @@ import sys
 
 app = Flask(__name__)
 CORS(app)
-
+streaming_active = False
 # Webcam Parameters
 webcam = None
 if len(sys.argv) == 2:
@@ -77,8 +77,10 @@ def reconstruct_frame(pyramid, index, levels):
 
 
 def generate_frames():
-    global bufferIndex, bpmBufferIndex, bpmBuffer
+    global bufferIndex, bpmBufferIndex, bpmBuffer, streaming_active
     while True:
+        if not streaming_active:
+            continue
         ret, frame = webcam.read()
         if not ret:
             break
@@ -123,6 +125,17 @@ def generate_frames():
 def index():
     return render_template('index.html')
 
+@app.route('/start_stream')
+def start_stream():
+    global streaming_active
+    streaming_active = True
+    return jsonify({"status": "streaming started"})
+
+@app.route('/stop_stream')
+def stop_stream():
+    global streaming_active
+    streaming_active = False
+    return jsonify({"status": "streaming stopped"})
 
 @app.route('/video_feed')
 def video_feed():
