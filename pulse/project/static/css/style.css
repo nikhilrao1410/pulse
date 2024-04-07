@@ -334,6 +334,15 @@ main {
     text-align: center;
 }
 
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
 #video-feed {
     max-width: 200%; /* Increase the size by 2x */
     border: 4px solid #333; /* Add a border with color #333 */

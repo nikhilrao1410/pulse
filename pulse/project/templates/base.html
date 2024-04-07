@@ -5,6 +5,7 @@
         <title>{% block title %}Home{% endblock %} Pulse Rate Monitor</title>
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <meta content="Webflow" name="generator">
+        <link rel="icon" type="image/svg+xml" sizes="32x32" href="{{ url_for('static', filename='images/fav-icon.svg') }}">
         <!-- Stylesheets -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.css" rel="stylesheet"> 
@@ -28,7 +29,9 @@
                       <li>
                         <a class="font-semibold text-gray-500 hover:text-red-400" href='/health'>Health</a>
                       </li>
-          
+                      <li>
+                        <a class="font-semibold text-gray-500 hover:text-red-400" href='/news'>News</a>
+                      </li>
                       <li>
                         <a class="font-semibold text-gray-500 hover:text-red-400" href='/bmi'>BMI</a>
                       </li>
@@ -59,7 +62,7 @@
               </div>
           </header>
     
-    <main style="flex: 1;">
+    <main style="flex: 1;" class="flex flex-col items-center justify-center gap-6">
         {% block content %}
         {% endblock %}
     </main>
@@ -79,7 +82,9 @@
               <li>
                 <a class="text-gray-500 hover:text-gray-700" href='/health'>Health</a>
               </li>
-  
+              <li>
+                <a class="text-gray-500 hover:text-gray-700" href='/news'>News</a>
+              </li>
               <li>
                 <a class="text-gray-500 hover:text-gray-700" href='/bmi'>BMI</a>
               </li>

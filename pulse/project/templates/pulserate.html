@@ -5,7 +5,7 @@
 {% block content %}
     <!-- Main Content Section -->
     <main class=" flex flex-col justify-center items-center gap-6">
-        <span class="text-red-500 font-bold" style="font-size: 72px;">Pulse Rate Detection using Webcam</span>
+        <span class="text-yellow-500 font-bold" style="font-size: 72px;">Pulse Rate Detection using Webcam</span>
         <div class="flex gap-10 items-center justify-center">
         <div class="overflow-hidden bg-red-100 rounded-lg shadow-lg p-4 flex flex-col justify-center" style="width: fit-content;">
         <!-- Video Containers -->
@@ -36,7 +36,258 @@
             <canvas id="pulseChart" width="800" height="400"></canvas>
         </div>
     </div>
-       
+    
+<p class="text-4xl font-semibold text-yellow-700">Resting heart rate chart for men</p>
+<div class="overflow-x-auto bg-white">
+    <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+        <table class="min-w-full leading-normal">
+            <thead>
+                <tr class="text-left bg-green-600 text-white text-sm">
+                    <th class="px-5 py-3 uppercase">By Age</th>
+                    <th class="px-5 py-3 uppercase">Athlete</th>
+                    <th class="px-5 py-3 uppercase">Excellent</th>
+                    <th class="px-5 py-3 uppercase">Good</th>
+                    <th class="px-5 py-3 uppercase">Above Average</th>
+                    <th class="px-5 py-3 uppercase">Average</th>
+                    <th class="px-5 py-3 uppercase">Below Average</th>
+                    <th class="px-5 py-3 uppercase">Poor</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-700">
+                <!-- Repeat this `tr` for each age group -->
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">18-25</td>
+                    <td class="px-5 py-4">49-55</td>
+                    <td class="px-5 py-4">56-61</td>
+                    <td class="px-5 py-4">62-65</td>
+                    <td class="px-5 py-4">66-69</td>
+                    <td class="px-5 py-4">70-73</td>
+                    <td class="px-5 py-4">74-81</td>
+                    <td class="px-5 py-4">82+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">26-35</td>
+                    <td class="px-5 py-4">49-54</td>
+                    <td class="px-5 py-4">55-61</td>
+                    <td class="px-5 py-4">62-65</td>
+                    <td class="px-5 py-4">66-70</td>
+                    <td class="px-5 py-4">71-74</td>
+                    <td class="px-5 py-4">75-81</td>
+                    <td class="px-5 py-4">82+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">36-45</td>
+                    <td class="px-5 py-4">50-56</td>
+                    <td class="px-5 py-4">57-62</td>
+                    <td class="px-5 py-4">63-66</td>
+                    <td class="px-5 py-4">67-70</td>
+                    <td class="px-5 py-4">71-75</td>
+                    <td class="px-5 py-4">76-82</td>
+                    <td class="px-5 py-4">83+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">46-55</td>
+                    <td class="px-5 py-4">50-57</td>
+                    <td class="px-5 py-4">58-63</td>
+                    <td class="px-5 py-4">64-67</td>
+                    <td class="px-5 py-4">68-71</td>
+                    <td class="px-5 py-4">72-76</td>
+                    <td class="px-5 py-4">77-83</td>
+                    <td class="px-5 py-4">84+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">56-65</td>
+                    <td class="px-5 py-4">51-56</td>
+                    <td class="px-5 py-4">57-61</td>
+                    <td class="px-5 py-4">62-67</td>
+                    <td class="px-5 py-4">68-71</td>
+                    <td class="px-5 py-4">72-75</td>
+                    <td class="px-5 py-4">76-81</td>
+                    <td class="px-5 py-4">82+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">65+</td>
+                    <td class="px-5 py-4">50-55</td>
+                    <td class="px-5 py-4">56-61</td>
+                    <td class="px-5 py-4">62-65</td>
+                    <td class="px-5 py-4">66-69</td>
+                    <td class="px-5 py-4">70-73</td>
+                    <td class="px-5 py-4">74-79</td>
+                    <td class="px-5 py-4">80+</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<p class="text-4xl font-semibold text-yellow-700">Resting heart rate chart for women</p>
+<div class="overflow-x-auto bg-white">
+    <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+        <table class="min-w-full leading-normal">
+            <thead>
+                <tr class="text-left bg-green-600 text-white text-sm">
+                    <th class="px-5 py-3 uppercase">By Age</th>
+                    <th class="px-5 py-3 uppercase">Athlete</th>
+                    <th class="px-5 py-3 uppercase">Excellent</th>
+                    <th class="px-5 py-3 uppercase">Good</th>
+                    <th class="px-5 py-3 uppercase">Above Average</th>
+                    <th class="px-5 py-3 uppercase">Average</th>
+                    <th class="px-5 py-3 uppercase">Below Average</th>
+                    <th class="px-5 py-3 uppercase">Poor</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-700">
+                <!-- Repeat this `tr` for each age group -->
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">18-25</td>
+                    <td class="px-5 py-4">49-55</td>
+                    <td class="px-5 py-4">56-61</td>
+                    <td class="px-5 py-4">62-65</td>
+                    <td class="px-5 py-4">66-69</td>
+                    <td class="px-5 py-4">70-73</td>
+                    <td class="px-5 py-4">74-81</td>
+                    <td class="px-5 py-4">82+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">26-35</td>
+                    <td class="px-5 py-4">54-59</td>
+                    <td class="px-5 py-4">60-64</td>
+                    <td class="px-5 py-4">65-68</td>
+                    <td class="px-5 py-4">69-72</td>
+                    <td class="px-5 py-4">73-76</td>
+                    <td class="px-5 py-4">77-82</td>
+                    <td class="px-5 py-4">83+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">36-45</td>
+                    <td class="px-5 py-4">54-59</td>
+                    <td class="px-5 py-4">60-64</td>
+                    <td class="px-5 py-4">65-69</td>
+                    <td class="px-5 py-4">70-73</td>
+                    <td class="px-5 py-4">74-78</td>
+                    <td class="px-5 py-4">79-84</td>
+                    <td class="px-5 py-4">85+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">46-55</td>
+                    <td class="px-5 py-4">54-60</td>
+                    <td class="px-5 py-4">61-65</td>
+                    <td class="px-5 py-4">66-69</td>
+                    <td class="px-5 py-4">70-73</td>
+                    <td class="px-5 py-4">74-77</td>
+                    <td class="px-5 py-4">78-83</td>
+                    <td class="px-5 py-4">84+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">56-65</td>
+                    <td class="px-5 py-4">54-59</td>
+                    <td class="px-5 py-4">60-64</td>
+                    <td class="px-5 py-4">65-68</td>
+                    <td class="px-5 py-4">69-73</td>
+                    <td class="px-5 py-4">74-77</td>
+                    <td class="px-5 py-4">78-83</td>
+                    <td class="px-5 py-4">84+</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="px-5 py-4">65+</td>
+                    <td class="px-5 py-4">54-59</td>
+                    <td class="px-5 py-4">60-64</td>
+                    <td class="px-5 py-4">65-68</td>
+                    <td class="px-5 py-4">69-72</td>
+                    <td class="px-5 py-4">73-76</td>
+                    <td class="px-5 py-4">77-84</td>
+                    <td class="px-5 py-4">84+</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<h1 class="text-4xl mt-6 font-semibold">Maximum and Target Heart Rate by Age</h1>
+    <p class="max-w-5xl text-lg">This table shows target heart rate zones for different ages. Your maximum heart rate is about 220 minus your age. <br />
+        
+        In the age category closest to yours, read across to find your target heart rates. Target heart rate during moderate intensity activities is about 50-70% of maximum heart rate, while during vigorous physical activity it’s about 70-85% of maximum.
+        <br/>
+        The figures are averages, so use them as a general guide.</p>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200 mt-6">
+                <thead>
+                    <tr class="text-left bg-green-600 text-white text-sm">
+                        <th scope="col" class="px-6 py-3 text-left font-medium text-white uppercase tracking-wider">
+                            Age
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left font-medium text-white uppercase tracking-wider">
+                            Target HR Zone 50-85%
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left font-medium text-white uppercase tracking-wider">
+                            Average Maximum Heart Rate, 100%
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">20 years</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">100-140 bpm</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">200 bpm</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">35 years</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">93-157 bpm</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">185 bpm</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40 years</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">90-153 bpm</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">180 bpm</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">45 years</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">88-149 bpm</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">175 bpm</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">50 years</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">85-145 bpm</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">170 bpm</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">55 years</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">83-140 bpm</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">165 bpm</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">60 years</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">80-136 bpm</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">160 bpm</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">65 years</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">78-132 bpm</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">155 bpm</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">70 years</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">75-128 bpm</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">150 bpm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <div class="max-w-4xl mx-auto my-8 p-4 bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">What is your pulse?</h2>
+        <p class="mb-4">When your heart beats, it pushes blood around your body. This heartbeat can be felt as your 'pulse' on your wrist or neck.</p>
+        <p class="mb-4">Your pulse is measured by counting the number of times your heart beats in one minute. For example, if your heart contracts 72 times in one minute, your pulse would be 72 beats per minute (BPM). This is also called your heart rate.</p>
+        <p class="mb-4">A normal pulse beats in a steady, regular rhythm. However, in some people this rhythm is uneven, or 'jumps about'. This is known as an irregular pulse.</p>
+        
+        <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-2">How do you find your pulse?</h3>
+        <img src="https://assets.heartfoundation.org.nz/images/heart-healthcare/atrial-fibrillation/checking-your-pulse.jpg?mtime=1669000898" alt="Person checking pulse" class="my-4 w-full max-w-xs mx-auto" />
+        <p class="mb-4">The easiest place to find your pulse is on your wrist.</p>
+        <ol class="list-decimal pl-5 space-y-2">
+            <li>Turn your hand so that your palm is facing upwards.</li>
+            <li>Now place the three middle fingers from your other hand on your wrist in the outside groove below the base of your thumb.</li>
+            <li>Press lightly to feel the pulse under your fingers. If you can't feel anything press slightly harder.</li>
+        </ol>
+    </div>
+    
     </main>
     <!-- Include Chart.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>

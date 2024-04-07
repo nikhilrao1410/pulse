@@ -79,8 +79,6 @@ def reconstruct_frame(pyramid, index, levels):
 def generate_frames():
     global bufferIndex, bpmBufferIndex, bpmBuffer, streaming_active
     while True:
-        if not streaming_active:
-            continue
         ret, frame = webcam.read()
         if not ret:
             break
@@ -168,6 +166,10 @@ def terms():
 @app.route('/health')
 def health():
     return render_template('Health.html')
+
+@app.route('/news')
+def news():
+    return render_template('news.html')
 
 @app.route('/feedback')
 def feedback():

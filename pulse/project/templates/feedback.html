@@ -1,62 +1,66 @@
 {% extends "base.html" %}
 
-{% block title %}FAQ{% endblock %}
+{% block title %}Feedback Form{% endblock %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form</title>
-    <style>
+<style>
+    .feedback-form {
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px; /* Adjusted for better responsiveness */
+    }
 
-        .feedback-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
+    .feedback-form h1 {
+        color: #333; /* Darker font color for better readability */
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px; /* Adjusted size for better hierarchy */
+    }
 
-        .feedback-form h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .feedback-form label {
+        font-weight: bold;
+        display: block; /* Ensure labels are block level for better structure */
+        margin-bottom: 8px; /* Consistent spacing */
+        color: #666; /* Softer color for readability */
+    }
 
-        .feedback-form label {
-            font-weight: bold;
-        }
+    .feedback-form input[type="email"],
+    .feedback-form input[type="text"],
+    .feedback-form textarea {
+        width: 100%;
+        padding: 10px; /* Slightly larger padding for better touch targets */
+        margin-bottom: 20px; /* Increased spacing for better separation */
+        border: 2px solid #ccc; /* Slightly thicker border for clearer focus */
+        border-radius: 5px; /* Softened edges */
+        box-sizing: border-box;
+        font-size: 14px; /* Improved text readability */
+    }
 
-        .feedback-form input[type="email"],
-        .feedback-form textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+    .feedback-form textarea {
+        height: 150px; /* Increased height for more message space */
+        resize: vertical; /* Allows user to adjust vertical size */
+    }
 
-        .feedback-form textarea {
-            height: 100px;
-        }
+    .feedback-form button {
+        background-color: rgb(10, 212, 10); /* Updated color for a modern look */
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 20px; /* Larger font size for readability */
+        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    }
 
-        .feedback-form button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
+    .feedback-form button:hover {
+        background-color: green; /* Darker shade on hover */
+    }
+</style>
 
-        .feedback-form button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
 <body>
     <div class="feedback-form">
         <h1>Feedback Form</h1>
@@ -83,7 +87,6 @@
         </form>
     </div>
 </body>
-</html>
 
 
 {% endblock %}

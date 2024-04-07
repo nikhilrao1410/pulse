@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}News{% endblock %}
+
+{% block content %}
+    <style>
+        /* Container for grid items */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Individual grid items */
+        .grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+<body>
+    <span class="text-3xl font-semibold text-yellow-500">Health News in  India</span>
+    <div id="news-container" class="grid-container w-full">
+      <!-- News cards will be injected here -->
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const apiKey = 'a0bc47aeb040468bb801d587b56dac51';
+    const apiUrl = `https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=${apiKey}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+            const container = document.getElementById('news-container');
+            data.articles.forEach(article => {
+                const card = `
+                <div class="grid-item max-w-sm rounded overflow-hidden shadow-lg">
+                  <img class="w-full object-fit" style="height: 224px;" src="${article.urlToImage}" alt="Article Image">
+                  <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">${article.title}</div>
+                    <p class="text-gray-700 text-base">${article.description}</p>
+                  </div>
+                  <div class="flex justify-end px-6 pt-4 pb-2">
+                    <a href="${article.url}" class="inline-block bg-yellow-300 rounded-full px-3 py-1 text-sm font-semibold" target="_blank">Read More</a>
+                  </div>
+                </div>
+
+                `;
+                container.innerHTML += card;
+            });
+        })
+        .catch(error => console.log('Error:', error));
+});
+
+  </script>
+</body>
+{% endblock %}
