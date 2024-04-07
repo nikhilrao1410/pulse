@@ -3,16 +3,147 @@
 {% block title %}FAQ{% endblock %}
 
 {% block content %}
-    <h1>Frequently Asked Questions (FAQ)</h1>
-    <ul>
-        <li>
-            <h2>Question 1</h2>
-            <p>Answer to question 1.</p>
-        </li>
-        <li>
-            <h2>Question 2</h2>
-            <p>Answer to question 2.</p>
-        </li>
-        <!-- Include more questions and answers as needed -->
-    </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <div class="space-y-4">
+        <details class="group border-s-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden" open>
+          <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+            <h2 class="text-lg font-medium text-gray-900">
+              What is Pulse Beat?
+            </h2>
+      
+            <span class="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </summary>
+      
+          <p class="mt-4 leading-relaxed text-gray-700">
+            Pulse Beat is a heart rate monitoring system that uses computer vision techniques to analyze the subtle changes in facial skin color caused by blood flow.
+          </p>
+        </details>
+      
+        <details class="group border-s-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+            <h2 class="text-lg font-medium text-gray-900">
+              How does Pulse Beat work?
+            </h2>
+      
+            <span class="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </summary>
+      
+          <p class="mt-4 leading-relaxed text-gray-700">
+            Pulse Beat works by capturing video from your webcam and analyzing the color changes in your face to detect your heart rate.
+          </p>
+        </details>
+      
+        <details class="group border-s-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+            <h2 class="text-lg font-medium text-gray-900">
+              How can I get support for Pulse Beat?
+            </h2>
+      
+            <span class="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </summary>
+      
+          <p class="mt-4 leading-relaxed text-gray-700">
+            For any questions or technical support related to Pulse Beat, you can contact our customer support team through the website or email.
+          </p>
+        </details>      
+
+        <details class="group border-s-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden" open>
+          <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+            <h2 class="text-lg font-medium text-gray-900">
+              How often should I use Pulse Beat?
+            </h2>
+      
+            <span class="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </summary>
+      
+          <p class="mt-4 leading-relaxed text-gray-700">
+            Pulse Beat can be used as often as desired. It's particularly useful for monitoring your heart rate during physical activity or periods of relaxation.
+          </p>
+        </details>
+      
+        <details class="group border-s-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+            <h2 class="text-lg font-medium text-gray-900">
+              Can Pulse Beat detect irregular heart rhythms?
+            </h2>
+      
+            <span class="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </summary>
+      
+          <p class="mt-4 leading-relaxed text-gray-700">
+            Pulse Beat is primarily designed for measuring heart rate and may not detect irregular rhythms. For detecting irregularities, it's recommended to consult a healthcare professional.
+          </p>
+        </details>
+      
+        <details class="group border-s-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+            <h2 class="text-lg font-medium text-gray-900">
+              Is my data secure with Pulse Beat?
+            </h2>
+      
+            <span class="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </summary>
+      
+          <p class="mt-4 leading-relaxed text-gray-700">
+            Yes, Pulse Beat prioritizes user privacy and data security. Your heart rate data is processed locally on your device and is not stored or transmitted to any external servers.
+          </p>
+        </details>
+      
+        <details class="group border-s-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+            <h2 class="text-lg font-medium text-gray-900">
+              Can Pulse Beat be used for medical diagnosis?
+            </h2>
+      
+            <span class="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </summary>
+      
+          <p class="mt-4 leading-relaxed text-gray-700">
+            Pulse Beat is intended for general wellness purposes only and should not be used for medical diagnosis or treatment. Always consult a healthcare professional for medical advice.
+          </p>
+        </details>
+      </div>
+      
+    
+      
+</body>
+</html>
+
     {% endblock %}

@@ -3,7 +3,105 @@
 {% block title %}About Us{% endblock %}
 
 {% block content %}
-    <h1>About Us</h1>
-    <p>Welcome to our project! Here's some information about our team and what we do.</p>
-    <!-- Include any additional content as needed -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Add CSS styles here -->
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Main Content Styles */
+        .about-us-section {
+            padding: 40px 0;
+        }
+
+        .about-us-section h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .about-us-section h2 {
+            color: #333;
+        }
+
+        .about-us-section p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about-us-section a {
+            color: #007bff;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <div class="container">
+        <section class="about-us-section">
+            <h2>Our Story</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac sollicitudin ipsum. Integer sit amet
+                velit eu
+                ligula condimentum volutpat. In lobortis dui quis ipsum eleifend, auctor suscipit est lacinia. Fusce
+                ultricies
+                nisi vitae sapien vulputate, nec malesuada dolor pretium. Suspendisse potenti. Donec eget consequat
+                tortor.
+                Pellentesque scelerisque magna ac lectus fringilla, in varius leo facilisis. Proin auctor, libero a
+                lacinia
+                lobortis, magna risus dapibus arcu, non placerat risus libero id nunc.</p>
+            <p>Aliquam consequat ultricies consequat. Nam vitae mauris bibendum, consectetur urna sed, ultrices libero.
+                Ut sit
+                amet nibh sit amet odio bibendum posuere nec et mauris. Aenean vitae mauris nec risus bibendum
+                condimentum.
+                Nam luctus dapibus augue at aliquam. Mauris pharetra sem nec nisl tincidunt, non rhoncus libero
+                vestibulum.
+                Cras id justo ac erat fermentum tristique. Nullam sit amet ligula tristique, tincidunt erat non,
+                tincidunt
+                sapien. In finibus urna ac quam vestibulum fermentum. Curabitur gravida augue in mi feugiat
+                suscipit.</p>
+            <p>For more information, visit our <a href="https://example.com">website</a>.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
+
     {% endblock %}

@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            background: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+        
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+        .bmi-info {
+            margin-top: 50px;
+            margin-right: 250px;
+            margin-left: 250px;
+            margin-bottom: 50px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        
+        
+        .bmi-info h2 {
+            margin-bottom: 10px;
+        }
+        
+        .bmi-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .bmi-info li {
+            margin-bottom: 10px;
+        }
+        
+        .info {
+            margin-top: 20px;
+        }
+        
+        .info h2 {
+            margin-bottom: 10px;
+        }
+        
+        .info ul {
+            padding-left: 20px;
+        }
+        
+        .info li {
+            margin-bottom: 10px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculate Your Body Mass Index</h1>
+        <form id="bmiForm">
+            <label for="height">Your Height:</label>
+            <input type="text" id="height" placeholder="(centimeters)">
+
+            <label for="weight">Your Weight:</label>
+            <input type="text" id="weight" placeholder="(kilograms)">
+
+            <input type="button" value="Compute BMI" onclick="calculateBMI()">
+            <div id="result"></div>
+        </form>
+    </div>
+
+    <div class="bmi-info">
+        <h2>BMI Categories:</h2>
+        <ul>
+            <li>Underweight = &lt;18.5 - You may need to increase your calorie intake to reach a healthier weight.</li>
+            <li>Normal weight = 18.5–24.9 - Congratulations! Your weight is within the healthy range.</li>
+            <li>Overweight = 25–29.9 - You may need to consider losing weight to reduce your risk of health problems.</li>
+            <li>Obesity = BMI of 30 or greater - You are at increased risk of developing serious health conditions. Consult with a healthcare professional for advice.</li>
+        </ul>
+   
+    
+    <div class="info">
+        <h2>What Next? Take Action Towards Better Health:</h2>
+        <ul>
+            <li><strong>Maintain a Healthy Weight:</strong> Maintaining a healthy weight is important for your heart health.</li>
+            <li><strong>Increase Physical Activity:</strong> Moving more can lower your risk factors for heart disease.</li>
+            <li><strong>Eat a Heart-Healthy Diet:</strong> Eating a healthy diet is the key to heart disease prevention.</li>
+            <li><strong>Know and Control Your Heart Health Numbers:</strong> Tracking your heart health stats can help you meet your heart health goals.</li>
+        </ul>
+    </div>
+    <!-- Add personalized fitness plan -->
+    <div class="fitness-plan">
+        <h2>Personalized Fitness Plan:</h2>
+        <p>Based on your BMI category, here are some general exercise recommendations:</p>
+        <ul>
+            <li><strong>Underweight:</strong> Incorporate strength training exercises to build muscle mass.</li>
+            <li><strong>Normal weight:</strong> Aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity activity per week.</li>
+            <li><strong>Overweight:</strong> Focus on cardiovascular exercises such as walking, cycling, or swimming to burn calories and improve heart health.</li>
+            <li><strong>Obesity:</strong> Start with low-impact exercises like swimming or cycling, and gradually increase intensity as fitness improves.</li>
+        </ul>
+    </div>
+
+    <!-- Add meal planning -->
+    <div class="meal-planning">
+        <h2>Meal Planning:</h2>
+        <p>Here's a sample meal plan for your BMI category:</p>
+        <!-- Sample meal plan details -->
+        <ul>
+            <li><strong>Breakfast:</strong> Whole grain toast with avocado and eggs.</li>
+            <li><strong>Lunch:</strong> Grilled chicken salad with mixed greens and vegetables.</li>
+            <li><strong>Dinner:</strong> Baked salmon with quinoa and roasted vegetables.</li>
+            <li><strong>Snacks:</strong> Greek yogurt with berries, nuts, or hummus with carrot sticks.</li>
+        </ul>
+    </div>
+
+    <!-- Add educational resources -->
+    <div class="educational-resources">
+        <h2>Educational Resources:</h2>
+        <p>Learn more about nutrition, exercise, and weight management:</p>
+        <!-- Links to educational articles or videos -->
+        <ul>
+            <li><a href="https://www.heart.org/en/healthy-living">American Heart Association - Healthy Living</a></li>
+            <li><a href="https://www.choosemyplate.gov/">Choose MyPlate - Dietary Guidelines</a></li>
+            <li><a href="https://www.cdc.gov/physicalactivity/index.html">CDC - Physical Activity Guidelines</a></li>
+            <li><a href="https://www.nutrition.gov/">Nutrition.gov - Nutrition and Health Information</a></li>
+        </ul>
+    </div>
+</div>
+    <script>
+        function calculateBMI() {
+            var height = parseFloat(document.getElementById('height').value);
+            var weight = parseFloat(document.getElementById('weight').value);
+    
+            if (isNaN(height) || isNaN(weight)) {
+                document.getElementById('result').innerText = "Please enter valid height and weight.";
+                return;
+            }
+    
+            var bmi = weight / ((height / 100) * (height / 100));
+            var bmiCategory;
+    
+            if (bmi < 18.5) {
+                bmiCategory = "Underweight";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                bmiCategory = "Normal weight";
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                bmiCategory = "Overweight";
+            } else {
+                bmiCategory = "Obesity";
+            }
+    
+            var resultText = "Your BMI: " + bmi.toFixed(2) + "<br>";
+            resultText += "BMI Category: " + bmiCategory;
+    
+            document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+    
+</body>
+
+</html>
+{% endblock %}

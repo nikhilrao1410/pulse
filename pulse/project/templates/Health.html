@@ -1,9 +1,126 @@
 {% extends "base.html" %}
 
-{% block title %}Health Insights{% endblock %}
+{% block title %}FAQ{% endblock %}
 
 {% block content %}
-    <h1 class="text-3xl font-bold underline">
-    Health Insights
-  </h1>
-    {% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart-Healthy Tips</title>
+    <style>
+        /* Container for grid items */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Individual grid items */
+        .grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image within grid item */
+        .grid-item img {
+            width: 100%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Title within grid item */
+        .grid-item h3 {
+            padding: 10px;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-size: 18px;
+        }
+
+        /* Description within grid item */
+        .grid-item p {
+            padding: 10px;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Optional: Additional styling */
+        h2 {
+            margin-top: 30px;
+        }
+
+        ul {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+   <h1>Fuel Your Heart: A Guide to Diet and Exercise for a Healthy Heart<h1>
+        <p>Maintaining a healthy heart is crucial for overall well-being. Here, we'll explore a heart-healthy diet and exercise routine to keep your heart pumping strong!<p>
+    <h2>Diet:</h2>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='images/image2.jpeg') }}" alt="Bowl of brown rice, quinoa, and whole-wheat bread">
+            <h3>Go Whole Grain</h3>
+            <p>Swap refined grains for whole grains like brown rice, quinoa, and whole-wheat bread. These provide sustained energy and keep you feeling fuller for longer.</p>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='images/image3.jpeg') }}" alt="Salmon, olive oil, avocado, and walnuts">
+            <h3>Choose Healthy Fats</h3>
+            <p>Not all fats are created equal. Include unsaturated fats from sources like fatty fish, olive oil, avocados, and nuts in your diet for healthy cholesterol levels.</p>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='images/image4.jpeg') }}" alt="Processed meats, French fries, and pastries">
+            <h3>Limit Saturated and Trans Fats</h3>
+            <p>Found in processed meats, fried foods, and baked goods, these fats can increase bad cholesterol (LDL) levels. Opt for lean protein sources and cooking methods like baking, grilling, or steaming.</p>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='images/image5.jpeg') }}" alt="Processed food, restaurant meal, and salt shaker">
+            <h3>Reduce Sodium Intake</h3>
+            <p>Excessive sodium intake can contribute to high blood pressure, a risk factor for heart disease. Limit processed foods, restaurant meals, and added table salt.</p>
+        </div>
+    </div>
+
+    <h2>Exercise:</h2>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='images/image6.jpeg') }}" alt="Person walking, swimming, and cycling">
+            <h3>Aim for Aerobic Activity</h3>
+            <p>Regular cardio exercise strengthens your heart, improves blood flow, and helps manage weight.</p>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='images/image7.jpeg') }}" alt="Person doing weight training">
+            <h3>Incorporate Strength Training</h3>
+            <p>Building muscle mass helps regulate blood sugar and cholesterol levels. Aim for strength training exercises at least twice a week.</p>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='images/image8.jpeg') }}" alt="Person walking, swimming, and cycling">
+            <h3>Increase Flexibility:</h3>
+            <p>Stretching regularly improves flexibility, reduces pain, and enhances posture. Aim for daily or at least regular stretching sessions.</p>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='images/image9.jpeg') }}" alt="Person walking, swimming, and cycling">
+            <h3>Reduce Sitting Time: </h3>
+            <p>Break up prolonged sitting throughout the day with short walks or light activity. Aim to get up and move every 30 minutes.</p>
+        </div>
+    </div>
+
+    <p>**Remember:**</p>
+    <ul>
+        <li>Consult your doctor before starting any new diet or exercise program.</li>
+        <li>Make gradual changes to your diet and exercise habits.</li>
+        <li>Stay hydrated by drinking plenty of water throughout the day.</li>
+    </ul>
+    <p>With a heart-healthy diet and regular exercise, you can empower your heart and live a long, healthy life!</p>
+</body>
+</html>
+{% endblock %}

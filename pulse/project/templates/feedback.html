@@ -1,9 +1,89 @@
 {% extends "base.html" %}
 
-{% block title %}Feedback{% endblock %}
+{% block title %}FAQ{% endblock %}
 
 {% block content %}
-    <h1>Feedback</h1>
-    <p>We value your feedback! Please let us know how we're doing.</p>
-    <!-- Include a feedback form or other elements for collecting feedback -->
-    {% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+
+        .feedback-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .feedback-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .feedback-form label {
+            font-weight: bold;
+        }
+
+        .feedback-form input[type="email"],
+        .feedback-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .feedback-form textarea {
+            height: 100px;
+        }
+
+        .feedback-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .feedback-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-form">
+        <h1>Feedback Form</h1>
+        <form action="https://api.web3forms.com/submit" method="POST">
+    
+            <!-- Input for access key -->
+            <input type="hidden" name="access_key" value="e1ac0e11-eb1b-45a9-95fd-68fbde5b972b">
+    
+            <!-- Input for name -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <!-- Input for email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <!-- Textarea for message -->
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+    
+            <!-- Submit button -->
+            <button type="submit">Submit Form</button>
+    
+        </form>
+    </div>
+</body>
+</html>
+
+
+{% endblock %}

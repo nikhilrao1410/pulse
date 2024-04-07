@@ -172,6 +172,9 @@ def health():
 @app.route('/feedback')
 def feedback():
     return render_template('feedback.html')
+@app.route('/bmi')
+def bmi():
+    return render_template('bmi.html')
 
 
 
