@@ -9,4 +9,4 @@ MarkupSafe==2.1.5
 numpy==1.26.4
 opencv-python==4.9.0.80
 Werkzeug==3.0.1
-gunicorn 
+
